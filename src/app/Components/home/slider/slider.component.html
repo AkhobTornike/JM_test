@@ -1,0 +1,41 @@
+<section class="slider">
+  <!-- Background Image -->
+  <div class="slider-container">
+    <img src="Images/slider.jpeg" alt="Rental Car" class="slider-image" />
+    <!-- Content Overlay -->
+    <div class="slider-content">
+      <h1>{{sliderContent.title}}</h1>
+      <h2>Mercedes AMG <strong class="price">$300 </strong>/ {{sliderContent.period}}</h2>
+      <button class="primary" (click)="checkButton()">{{sliderContent.btn}}
+        <span>
+            <svg width="12" height="14" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.9947 0.897104C14.9379 0.347751 14.4464 -0.0515183 13.8971 0.00531112L4.94487 0.931405C4.39552 0.988234 3.99625 1.47964 4.05308 2.029C4.10991 2.57835 4.60132 2.97762 5.15067 2.92079L13.1082 2.09759L13.9314 10.0551C13.9882 10.6045 14.4796 11.0038 15.029 10.9469C15.5783 10.8901 15.9776 10.3987 15.9208 9.84933L14.9947 0.897104ZM1.77611 17.6306L14.7761 1.6306L13.2239 0.369411L0.223886 16.3694L1.77611 17.6306Z" fill="white"/>
+            </svg>
+        </span>
+      </button>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="slider-nav">
+      <button class="nav-arrow left">
+        <svg width="94" height="94" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="47" cy="47" r="47" fill="#FF3437"/>
+            <path d="M31.3787 44.8787C30.2071 46.0503 30.2071 47.9497 31.3787 49.1213L50.4706 68.2132C51.6421 69.3848 53.5416 69.3848 54.7132 68.2132C55.8848 67.0416 55.8848 65.1421 54.7132 63.9706L37.7426 47L54.7132 30.0294C55.8848 28.8579 55.8848 26.9584 54.7132 25.7868C53.5416 24.6152 51.6421 24.6152 50.4706 25.7868L31.3787 44.8787ZM37.5 44H33.5V50H37.5V44Z" fill="white"/>
+        </svg>
+      </button>
+      <button class="nav-arrow right">
+        <svg width="94" height="94" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="47" cy="47" r="47" fill="#FF3437"/>
+            <path d="M61.6213 49.1213C62.7929 47.9497 62.7929 46.0503 61.6213 44.8787L42.5294 25.7868C41.3579 24.6152 39.4584 24.6152 38.2868 25.7868C37.1152 26.9584 37.1152 28.8579 38.2868 30.0294L55.2574 47L38.2868 63.9706C37.1152 65.1421 37.1152 67.0416 38.2868 68.2132C39.4584 69.3848 41.3579 69.3848 42.5294 68.2132L61.6213 49.1213ZM56 50H59.5V44H56V50Z" fill="white"/>
+        </svg> 
+      </button>
+    </div>
+
+    <div class="slider-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+
+    </div>
+  </div>
+</section>
