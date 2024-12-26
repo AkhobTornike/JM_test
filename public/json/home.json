@@ -53,13 +53,19 @@
     "types-en": [
         {
             "preHeading": "CATEGORIES",
-            "heading": "Rental Car Types"
+            "heading": "Rental Car Types",
+            "carType1": "Sedan",
+            "carType2": "Jeep",
+            "carType3": "Sports Car"
         }
     ],
     "types-geo": [
         {
             "preHeading": "კატეგორიები",
-            "heading": "გასაქირავებელი მანქანების ტიპები"
+            "heading": "გასაქირავებელი მანქანების ტიპები",
+            "carType1": "სედანი",
+            "carType2": "ჯიპი",
+            "carType3": "სპორტული მანქანა"
         }
     ]
 }

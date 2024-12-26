@@ -1,5 +1,4 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { SliderComponent } from "./slider/slider.component";
 import { FilterComponent } from "./filter/filter.component";
 import { AboutUsComponent} from "./about-us/about-us.component"
 import { CarTypesComponent } from "./car-types/car-types.component";
@@ -11,7 +10,7 @@ import homeInfo from '../../../../public/json/home.json';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SliderComponent, FilterComponent, AboutUsComponent, CarTypesComponent],
+  imports: [FilterComponent, AboutUsComponent, CarTypesComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

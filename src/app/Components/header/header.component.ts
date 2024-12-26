@@ -9,23 +9,28 @@ import { LanguageService } from '../../Services/language.service';
 import { AuthService } from '../../Services/auth.service';
 
 import headerInfo from '../../../../public/json/header.json';
+import { BookNowComponent } from "../book-now/book-now.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
     RouterModule,
     MatButtonModule,
     MatDividerModule,
-    MatIconModule    
-  ],
+    MatIconModule,
+    BookNowComponent
+],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
+  isToggleShow: boolean = false;
   currentNav = headerInfo['nav-link-en'];
   currentContact = headerInfo['contact-en'][0];
+  modalVisible: boolean = false;
+
 
   constructor(
     public languageService: LanguageService,
@@ -35,6 +40,7 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
     if (isPlatformBrowser(this.platformId)) {
       const savedLang = sessionStorage.getItem('currentLang');
 
@@ -78,13 +84,25 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateToLogin() {
-    const userToken = this.authService.getToken();
+    // const userToken = this.authService.getToken();
+    const userToken = sessionStorage.getItem('currentUser');
     if (!userToken) {
       this.router.navigate(['/login']);
+    } else {
+      this.router.navigate(['/profile']);
     }
   }
 
   scrollToTop() {
     window.scrollTo(0, 0);
+    this.toggleNavLinks();
+  }
+  
+  toggleNavLinks() {
+    this.isToggleShow = !this.isToggleShow;
+  }
+
+  openModal() {
+    this.modalVisible = true;
   }
 }

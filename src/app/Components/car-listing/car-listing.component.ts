@@ -1,5 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Router } from '@angular/router';
+
+import * as cars from '../../../../public/json/cars.json';
+import carListingInfo from '../../../../public/json/car-listing.json';
+import { LanguageService } from '../../Services/language.service';
 
 @Component({
   selector: 'app-car-listing',
@@ -8,50 +13,39 @@ import { Component } from '@angular/core';
   templateUrl: './car-listing.component.html',
   styleUrl: './car-listing.component.scss'
 })
-export class CarListingComponent {
-  cars = [
-    { name: 'Mercedes-Benz E 63', passengers: 4, transmission: 'Auto', year: 2011, price: 750, image: 'Images/Cars/car1.jpg' },
-    { name: 'BMW M5', passengers: 4, transmission: 'Auto', year: 2012, price: 700, image: 'Images/Cars/car2.jpg' },
-    { name: 'Audi RS 7', passengers: 4, transmission: 'Auto', year: 2013, price: 650, image: 'Images/Cars/car3.jpg' },
-    { name: 'Porsche Panamera', passengers: 4, transmission: 'Auto', year: 2014, price: 600, image: 'Images/Cars/car4.jpg' },
-    { name: 'Tesla Model S', passengers: 4, transmission: 'Auto', year: 2015, price: 550, image: 'Images/Cars/car5.jpg' },
-    { name: 'Chevrolet Camaro', passengers: 4, transmission: 'Auto', year: 2016, price: 500, image: 'Images/Cars/car6.jpg' },
-    { name: 'Ford Mustang', passengers: 4, transmission: 'Auto', year: 2017, price: 450, image: 'Images/Cars/car7.jpg' },
-    { name: 'Dodge Challenger', passengers: 4, transmission: 'Auto', year: 2018, price: 400, image: 'Images/Cars/car8.jpg' },
-    { name: 'Nissan GT-R', passengers: 4, transmission: 'Auto', year: 2018, price: 350, image: 'Images/Cars/car9.jpg' },
-    { name: 'Toyota Supra', passengers: 4, transmission: 'Auto', year: 2018, price: 300, image: 'Images/Cars/car10.jpg' },
-    { name: 'Mercedes-Benz E 63', passengers: 4, transmission: 'Auto', year: 2011, price: 750, image: 'Images/Cars/car1.jpg' },
-    { name: 'BMW M5', passengers: 4, transmission: 'Auto', year: 2012, price: 700, image: 'Images/Cars/car2.jpg' },
-    { name: 'Audi RS 7', passengers: 4, transmission: 'Auto', year: 2013, price: 650, image: 'Images/Cars/car3.jpg' },
-    { name: 'Porsche Panamera', passengers: 4, transmission: 'Auto', year: 2014, price: 600, image: 'Images/Cars/car4.jpg' },
-    { name: 'Tesla Model S', passengers: 4, transmission: 'Auto', year: 2015, price: 550, image: 'Images/Cars/car5.jpg' },
-    { name: 'Chevrolet Camaro', passengers: 4, transmission: 'Auto', year: 2016, price: 500, image: 'Images/Cars/car6.jpg' },
-    { name: 'Ford Mustang', passengers: 4, transmission: 'Auto', year: 2017, price: 450, image: 'Images/Cars/car7.jpg' },
-    { name: 'Dodge Challenger', passengers: 4, transmission: 'Auto', year: 2018, price: 400, image: 'Images/Cars/car8.jpg' },
-    { name: 'Nissan GT-R', passengers: 4, transmission: 'Auto', year: 2018, price: 350, image: 'Images/Cars/car9.jpg' },
-    { name: 'Toyota Supra', passengers: 4, transmission: 'Auto', year: 2018, price: 300, image: 'Images/Cars/car10.jpg' },
-    { name: 'Porsche Panamera', passengers: 4, transmission: 'Auto', year: 2014, price: 600, image: 'Images/Cars/car4.jpg' },
-    { name: 'Tesla Model S', passengers: 4, transmission: 'Auto', year: 2015, price: 550, image: 'Images/Cars/car5.jpg' },
-    { name: 'Chevrolet Camaro', passengers: 4, transmission: 'Auto', year: 2016, price: 500, image: 'Images/Cars/car6.jpg' },
-    { name: 'Ford Mustang', passengers: 4, transmission: 'Auto', year: 2017, price: 450, image: 'Images/Cars/car7.jpg' },
-    { name: 'Dodge Challenger', passengers: 4, transmission: 'Auto', year: 2018, price: 400, image: 'Images/Cars/car8.jpg' },
-    { name: 'Nissan GT-R', passengers: 4, transmission: 'Auto', year: 2018, price: 350, image: 'Images/Cars/car9.jpg' },
-    { name: 'Toyota Supra', passengers: 4, transmission: 'Auto', year: 2018, price: 300, image: 'Images/Cars/car10.jpg' },
-    { name: 'Mercedes-Benz E 63', passengers: 4, transmission: 'Auto', year: 2011, price: 750, image: 'Images/Cars/car1.jpg' },
-    { name: 'BMW M5', passengers: 4, transmission: 'Auto', year: 2012, price: 700, image: 'Images/Cars/car2.jpg' },
-    { name: 'Audi RS 7', passengers: 4, transmission: 'Auto', year: 2013, price: 650, image: 'Images/Cars/car3.jpg' },
-    { name: 'Porsche Panamera', passengers: 4, transmission: 'Auto', year: 2014, price: 600, image: 'Images/Cars/car4.jpg' },
-    { name: 'Tesla Model S', passengers: 4, transmission: 'Auto', year: 2015, price: 550, image: 'Images/Cars/car5.jpg' },
-    { name: 'Chevrolet Camaro', passengers: 4, transmission: 'Auto', year: 2016, price: 500, image: 'Images/Cars/car6.jpg' },
-    { name: 'Ford Mustang', passengers: 4, transmission: 'Auto', year: 2017, price: 450, image: 'Images/Cars/car7.jpg' },
-    { name: 'Dodge Challenger', passengers: 4, transmission: 'Auto', year: 2018, price: 400, image: 'Images/Cars/car8.jpg' },
-    { name: 'Nissan GT-R', passengers: 4, transmission: 'Auto', year: 2018, price: 350, image: 'Images/Cars/car9.jpg' },
-    { name: 'Toyota Supra', passengers: 4, transmission: 'Auto', year: 2018, price: 300, image: 'Images/Cars/car10.jpg' },
-  
-  ];
-
+export class CarListingComponent implements OnInit {
+  cars = (cars as any).default;
+  currentFilter = carListingInfo['listing-filter-en'][0];
+  currentCart = carListingInfo['listing-cart-en'][0]; 
   currentPage = 1;
   itemsPerPage = 4;
+
+  constructor(
+    private router: Router,
+    private languageService: LanguageService,
+    @Inject(PLATFORM_ID) private platformId: object
+  ) {}
+
+  ngOnInit() {
+    if(isPlatformBrowser(this.platformId)) {
+      const savedLang = sessionStorage.getItem('currentLang');
+      if(savedLang) {
+        this.languageService.setCurrentLang(savedLang);
+        this.updateContent(savedLang);
+      } else {
+        this.updateContent(this.languageService.getCurrentLang());
+      }
+    }
+
+    this.languageService.getCurrentLangObservable().subscribe((lang) => {
+      this.updateContent(lang);
+    });
+  }
+
+  updateContent(lang: string) {
+    this.currentFilter = lang === 'en' ? carListingInfo['listing-filter-en'][0] : carListingInfo['listing-filter-geo'][0];
+    this.currentCart = lang === 'en' ? carListingInfo['listing-cart-en'][0] : carListingInfo['listing-cart-geo'][0];
+  }
 
   get pagedCars() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
@@ -84,5 +78,10 @@ export class CarListingComponent {
 
   goToPage(page: number) {
     this.currentPage = page;
+  }
+
+  goToDetails(carId: number) {
+    console.log(carId);
+    this.router.navigate(['cars-listing/details', carId]);
   }
 }

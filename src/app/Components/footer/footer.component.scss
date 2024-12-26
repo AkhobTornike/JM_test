@@ -42,6 +42,16 @@ $text-color: #ffffff;
           width: 300px;
         }
       }
+
+      @media (max-width: 430px) {
+        h1 {
+          font-size: 1.2rem;
+        }
+        p {
+          font-size: 0.8rem;
+          width: 100px;
+        }
+      }
     }
 
     .contact-info {

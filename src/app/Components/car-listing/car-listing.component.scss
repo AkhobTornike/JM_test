@@ -8,7 +8,6 @@ $text-color: #FFFFFF;
 
   .hero-section {
     position: relative;
-
     .hero-image {
       width: 100%;
       height: 500px;
@@ -34,7 +33,6 @@ $text-color: #FFFFFF;
         background-color: $secondary-color;
         padding: 10px;
         border-radius: 25px;
-
         input {
           padding: 10px;
           border: none;
@@ -43,11 +41,14 @@ $text-color: #FFFFFF;
         }
       }
 
+      .filters:last-child {
+        border-radius: 0 0 10px 10px;
+      }
+
       .filters {
         background-color: $secondary-color;
         width: 100%;
         padding: 10px 0;
-        border-radius: 0 0 10px 10px;
 
         h3 {
           margin: 10px;
@@ -110,53 +111,52 @@ $text-color: #FFFFFF;
         padding-inline: 10px;
 
         h3 {
-          margin: 10px;
-          color: $text-color;
+            margin: 10px;
+            color: $text-color;
         }
 
         div {
-          display: flex;
-          flex-wrap: wrap;
-
-          div {
-            width: 100%;
             display: flex;
-            justify-content: space-between;
-          }
+            flex-wrap: wrap;
 
-          div:last-child {
-            justify-content: space-around;
-            gap: 30px;
-            padding-block: 20px;
-            margin-block: 20px;
-
-            h4 {
-              margin: 20px;
-              color: $text-color;
-              font-size: x-large;
-
-              span {
-                color: $primary-color;
-              }
+            div {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
             }
 
-            button {
-              padding: 0 50px;
-              border: none;
-              background: $primary-color;
-              color: $text-color;
-              cursor: pointer;
-              border-radius: 50px;
+            div:last-child {
+                justify-content: space-around;
+                gap: 30px;
+                padding-block: 20px;
+                margin-block: 20px;
+                h4 {
+                    margin: 20px;
+                    color: $text-color;
+                    font-size: x-large;
+            
+                    span {
+                      color: $primary-color;
+                    }
+                }
+    
+                button {
+                    padding: 0 50px;
+                    border: none;
+                    background: $primary-color;
+                    color: $text-color;
+                    cursor: pointer;
+                    border-radius: 50px;
+                }
             }
-          }
 
-          p {
-            margin: 20px;
+            p {
+                margin: 20px;
 
-            svg {
-              margin-right: 5px;
+                svg {
+                  margin-right: 5px;
+                }
             }
-          }
         }
       }
 
@@ -169,9 +169,9 @@ $text-color: #FFFFFF;
   }
 
   .pagination {
-    display: flex;
-    justify-content: center;
-    padding: 30px;
+      display: flex;
+      justify-content: center;
+      padding: 30px;
 
     button {
       padding: 5px 10px;
@@ -194,5 +194,10 @@ $text-color: #FFFFFF;
         background: $primary-color;
       }
     }
+  }
+
+  .pagination button.active {
+    background: $primary-color;
+    color: $text-color;
   }
 }

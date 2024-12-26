@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="filters">
-        <h3>Select Brand</h3>
+        <h3>{{currentFilter.heading1}}</h3>
         <label> <input type="radio" name="brand" /> Mercedes </label>
         <label> <input type="radio" name="brand" /> BMW </label>
         <label> <input type="radio" name="brand" /> Mazda </label>
@@ -31,13 +31,13 @@
       </div>
 
       <div class="filters">
-        <h3>Transmission</h3>
+        <h3>{{currentFilter.heading2}}</h3>
         <label> <input type="radio" name="transmission" /> Automatic </label>
         <label> <input type="radio" name="transmission" /> Manual </label>
       </div>
 
       <div class="filters">
-        <h3>Car Type</h3>
+        <h3>{{currentFilter.heading3}}</h3>
         <label> <input type="radio" name="car-type" /> SUV </label>
         <label> <input type="radio" name="car-type" /> Sedan </label>
         <label> <input type="radio" name="car-type" /> Hatchback </label>
@@ -89,7 +89,7 @@
                 />
               </svg>
 
-              Passengers:
+              {{currentCart.label1}}:
             </p>
             <p>{{ car.passengers }}</p>
           </div>
@@ -146,7 +146,7 @@
                 </defs>
               </svg>
 
-              Transmission: {{ car.transmission }}
+              {{currentCart.label2}}:
             </p>
             <p>{{ car.transmission }}</p>
           </div>
@@ -166,15 +166,15 @@
                   fill="#FF3437"
                 />
               </svg>
-              Year: {{ car.year }}
+              {{currentCart.label3}}:
             </p>
             <p>{{ car.year }}</p>
           </div>
           <div>
             <h4>
-              <span>${{ car.price }}</span> / day
+              <span>${{ car.price }}</span> / {{currentCart.period}}
             </h4>
-            <button>Details</button>
+            <button (click)="goToDetails(car.id)">{{currentCart.btn1}}</button>
           </div>
         </div>
       </div>

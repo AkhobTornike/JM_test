@@ -28,7 +28,8 @@ export class RegisterComponent implements OnInit{
   ) {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      roleId: 1
     });
   }
 
@@ -52,6 +53,7 @@ export class RegisterComponent implements OnInit{
   }
 
   onSubmit(): void {
+    console.log(this.registerForm)
     if (this.registerForm.valid) {
       this.authService.register(this.registerForm.value).subscribe({
         next: (response) => {

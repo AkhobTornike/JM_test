@@ -12,16 +12,33 @@ $text-color: #FFFFFF;
   .about-text {
     max-width: 40%;
 
+    @media (max-width: 530px) {
+      max-width: 100%;
+    }
+
     h2, h5 {
       color: #ff4141;
       margin-bottom: 20px;
+      @media (max-width: 530px) {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+      }
     }
     h5 {
       margin-bottom: 40px;
+
+      @media (max-width: 530px) {
+        margin-bottom: 20px;
+        font-size: 0.8rem;
+      }
     }
 
     p {
       max-width: 70%;
+      
+      @media (max-width: 530px) {
+        font-size: 0.8rem;
+      }
     }
 
     ul {
@@ -33,6 +50,10 @@ $text-color: #FFFFFF;
         display: flex;
         align-items: center;
         gap: 10px;
+
+        @media (max-width: 530px) {
+          font-size: 0.8rem;
+        }
       }
     }
 
@@ -54,6 +75,11 @@ $text-color: #FFFFFF;
       &:hover {
           box-shadow: $primary-color 0px 0px 20px;
       }
+
+      @media (max-width: 530px) {
+        width: 80%;
+        margin-top: 20px;
+      }
     }
   }
 
@@ -68,5 +94,15 @@ $text-color: #FFFFFF;
   .about-image img {
     width: 300px;
     border-radius: 10px;
+
+    @media (max-width: 530px) {
+      width: 200px;
+      margin-top: 30px;
+    } 
+  }
+
+  @media(max-width: 530px) {
+    padding: 30px 10px;
+    align-items: flex-start;
   }
 }

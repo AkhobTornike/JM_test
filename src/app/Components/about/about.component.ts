@@ -1,8 +1,10 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+
+import { LanguageService } from '../../Services/language.service';
 
 import aboutInfo from '../../../../public/json/about.json';
-import { LanguageService } from '../../Services/language.service';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+
 @Component({
   selector: 'app-about',
   standalone: true,

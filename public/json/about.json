@@ -39,7 +39,12 @@
         {
             "heading1": "Get in Thouch",
             "heading2": "Locations",
-            "btn": "Send Message"
+            "btn": "Send Message",
+            "placeholder1": "Your Name",
+            "placeholder2": "Your Email",
+            "placeholder3": "Your Phone",
+            "placeholder4": "Subject",
+            "placeholder5": "Your Message"
         }
     ],
 
@@ -47,7 +52,12 @@
         {
             "heading1": "დაგვიკავშირდით",
             "heading2": "ლოკაცია",
-            "btn": "გააგზავნეთ მესიჯი"
+            "btn": "გააგზავნეთ მესიჯი",
+            "placeholder1": "თქვენი სახელი",
+            "placeholder2": "თქვენი ელ-ფოსტა",
+            "placeholder3": "თქვენი ნომერი",
+            "placeholder4": "მიზეზი",
+            "placeholder5": "თქვენი შეტყობინება"
         }
     ]
 }

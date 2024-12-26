@@ -7,6 +7,8 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { LanguageService } from '../../Services/language.service';
 
 import loginInfo from '../../../../public/json/login.json';
+import usersLInfo from '../../../../public/json/users.json';
+import { User } from '../../Interfaces/user';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +21,7 @@ export class LoginComponent implements OnInit{
   loginForm: FormGroup;
   errorMessage: string = '';
   currentLoginInfo = loginInfo['login-en'][0]
+  users = usersLInfo['users'];
 
 
   constructor(
@@ -53,12 +56,26 @@ export class LoginComponent implements OnInit{
     this.currentLoginInfo = lang === 'en' ? loginInfo['login-en'][0] : loginInfo['login-geo'][0];
   }
 
+  temporaryOnSubmit(): void {
+    if (this.loginForm.valid) {
+      const user = this.users.find(user => user.email === this.loginForm.value.email && user.password === this.loginForm.value.password);
+      if (!user) {
+        this.errorMessage = 'Invalid email or password';
+        return;
+      } else {
+        const userId = Number(user.token.slice(-1));
+        sessionStorage.setItem('currentUser', JSON.stringify(userId));
+        this.router.navigate(['/profile']);
+      }
+    }
+  }
+
   onSubmit(): void {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
           this.authService.saveToken(response.token!);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/profile']);
         },
         error: (err) => {
           this.errorMessage = 'Invalid email or password';
